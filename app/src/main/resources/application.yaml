@@ -1,0 +1,13 @@
+logging.level.au.edu.rmit.student.weiminsu.cosc2626.playtogether.mappers: DEBUG
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5422/play-together
+    username: postgres
+    password: test
+    driverClassName: org.postgresql.Driver
+    initialization-mode: always
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-handlers-package: au.edu.rmit.student.weiminsu.cosc2626.playtogether.mappers

@@ -2,7 +2,7 @@ logging.level.au.edu.rmit.student.weiminsu.cosc2626.playtogether.mappers: DEBUG
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5422/play-together
+    url: jdbc:postgresql://${DB_CONNECTION_URL:localhost:5422/play-together}
     username: postgres
     password: test
     driverClassName: org.postgresql.Driver

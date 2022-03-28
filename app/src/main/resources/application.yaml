@@ -3,8 +3,8 @@ logging.level.au.edu.rmit.student.weiminsu.cosc2626.playtogether.mappers: DEBUG
 spring:
   datasource:
     url: jdbc:postgresql://${DB_CONNECTION_URL:localhost:5422/play-together}
-    username: postgres
-    password: test
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:test}
     driverClassName: org.postgresql.Driver
     initialization-mode: always
 

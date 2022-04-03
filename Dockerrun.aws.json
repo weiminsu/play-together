@@ -1,0 +1,19 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "volumes": [
+  ],
+  "containerDefinitions": [
+    {
+      "name": "play-together-server",
+      "image": "263029147968.dkr.ecr.us-east-1.amazonaws.com/playtogether:v0.0.2",
+      "essential": true,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 8080
+        }
+      ]
+    }
+  ]
+}

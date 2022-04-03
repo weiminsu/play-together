@@ -27,6 +27,7 @@ dependencies {
     implementation("com.google.guava:guava:30.1.1-jre")
     implementation("org.springframework.boot:spring-boot-dependencies:2.6.4")
     implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-security")
 
     implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2")
     implementation("org.postgresql:postgresql:42.2.13")

@@ -1,5 +1,40 @@
+#profileImageDiv {
+     margin: auto;
+     width: 50%;
+     text-align: center;
+}
 #profileImage {
     border-radius: 50%;
-    with: 90px;
-    height: 90px;
+    height: 12rem;
+}
+
+#suburbDiv {
+     margin: auto;
+     width: 50%;
+     text-align: center;
+}
+#suburb {
+    width: 50rem;
+}
+
+#descriptionDiv {
+     margin: auto;
+     width: 50%;
+     text-align: center;
+}
+#description {
+    width: 50rem;
+    height: 15rem;
+}
+
+#childrenDiv {
+     margin: auto;
+     width: 50%;
+}
+.childName {
+    width: 36rem;
+}
+
+.child-list {
+    width: 50rem;
 }

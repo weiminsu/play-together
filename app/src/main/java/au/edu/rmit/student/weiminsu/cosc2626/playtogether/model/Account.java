@@ -1,7 +1,5 @@
 package au.edu.rmit.student.weiminsu.cosc2626.playtogether.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

@@ -65,5 +65,5 @@ public interface AccountMapper {
             </script>
         """
     )
-    List<Child> insertChildren(@Param("children") List<Child> children);
+    List<Child> upsertChildren(@Param("children") List<Child> children);
 }

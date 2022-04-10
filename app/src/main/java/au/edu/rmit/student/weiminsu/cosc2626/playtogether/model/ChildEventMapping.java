@@ -5,11 +5,10 @@ import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
-@Data
 @NoArgsConstructor
-public class Child {
-    private UUID id;
-    private UUID accountId;
-    private String name;
-    private Integer age;
+@Data
+public class ChildEventMapping {
+    UUID childId;
+    UUID eventId;
+    Boolean attending;
 }

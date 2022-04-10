@@ -38,3 +38,9 @@
 .child-list {
     width: 50rem;
 }
+
+#save-button {
+    margin: auto;
+    width: 50%;
+    padding: 2rem;
+}

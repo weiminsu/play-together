@@ -10,7 +10,7 @@ import reportWebVitals from './reportWebVitals';
 ReactDOM.render(
     <Router>
       <Routes>
-          <Route index element={<Login />} />
+          <Route index element={<PrivateRoute><ProfilePage /></PrivateRoute>} />
           <Route path="/login" element={<Login />} />
           <Route path="/account/:id" element={<PrivateRoute><ProfilePage /></PrivateRoute>} />
       </Routes>

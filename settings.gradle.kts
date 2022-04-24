@@ -9,3 +9,4 @@
 
 rootProject.name = "play-together"
 include("app")
+include("image-server")

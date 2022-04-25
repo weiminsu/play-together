@@ -82,6 +82,78 @@ class ProfilePage extends React.Component {
         })
     }
 
+    getProfileImageUrl(imageId) {
+        fetch(`${process.env.REACT_APP_SERVER_ENDPOINT}/image/${imageId}`, {crossDomain: true})
+            .then(response => {
+                if (response.ok) {
+                    response.json()
+                    .then((jsonResponse) => {
+                        this.setProfileImageUrl(jsonResponse.imageUrl)
+                    })
+                } else {
+                    console.log("failed to get profile image url")
+                    console.log(response)
+                }
+            })
+    }
+
+    setProfileImageUrl(src) {
+        var profileImage = document.getElementById("profileImage")
+        profileImage.src = src
+    }
+
+    getProfileImageUploadUrl() {
+        var uploadUrlResponse = null
+
+        return uploadUrlResponse;
+    }
+
+    chooseImageAndUpload(state) {
+
+        var input = document.createElement('input')
+        input.type = 'file'
+
+        input.onchange = e => {
+           // getting a hold of the file reference
+           var file = e.target.files[0]
+           console.log(file.name)
+           console.log(file.type)
+           let fileType = file.type.substring(file.type.indexOf("/") + 1)
+           // setting up the reader
+           let formData = new FormData();
+           formData.append('file', file);
+
+           fetch(`${process.env.REACT_APP_SERVER_ENDPOINT}/image/upload-url?imageType=${fileType}`, {crossDomain: true})
+               .then(response => {
+                   if (response.ok) {
+                       response.json()
+                       .then((jsonResponse) => {
+                          var uploadUrlResponse = jsonResponse
+                          fetch(uploadUrlResponse.uploadUrl, {
+                              method: 'PUT',
+                              headers: {
+                                  "Content-length": file.size
+                              },
+                              body: file // Here, stringContent or bufferContent would also work
+                          })
+                          .then(function(res) {
+                              state.account.profileImageUrl = uploadUrlResponse.imageId
+                              this.getProfileImageUrl(uploadUrlResponse.imageId)
+                              console.log(res.json())
+                          }).then(function(json) {
+                              console.log(json)
+                          });
+                       })
+                   } else {
+                       console.log("failed to get upload image url")
+                       console.log(response)
+                   }
+               })
+        }
+
+        input.click()
+    }
+
     render() {
         const { dataLoaded, account } = this.state;
         if (!dataLoaded) return (
@@ -93,7 +165,7 @@ class ProfilePage extends React.Component {
         return (
             <div className = "App">
                 <div id="profileImageDiv">
-                      <img id="profileImage" src={account.profileImageUrl || process.env.PUBLIC_URL + "/default_profile_image.jpeg"} alt="No Profile Image" />
+                      <img id="profileImage" src={this.getProfileImageUrl(account.profileImageUrl) || process.env.PUBLIC_URL + "/default_profile_image.jpeg"} alt="No Profile Image" onClick={() => this.chooseImageAndUpload(this.state)}/>
                 </div>
                 <div id="suburbDiv" class="form-floating mb-3">
                       <input type="text" id="suburb" class="form-control" defaultValue={account.suburb} placeholder="Enter a suburb"></input>

@@ -48,7 +48,8 @@ public class ImageRepository {
         Table table = dynamoDB.getTable(DYNAMODB_IMAGE_METADATA_TABLE_NAME);
         try {
             Item item = new Item().withPrimaryKey(ImageMetadata.IMAGE_ID, imageMetadata.getImageId().toString())
-                    .withString(ImageMetadata.BUCKET_NAME, imageMetadata.getBucketName());
+                    .withString(ImageMetadata.BUCKET_NAME, imageMetadata.getBucketName())
+                            .withString(ImageMetadata.IMAGE_TYPE, imageMetadata.getImageType());
             table.putItem(item);
         }
         catch (Exception e) {

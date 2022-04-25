@@ -12,8 +12,9 @@ import java.util.UUID;
 public class ImageMetadata {
     public static final String IMAGE_ID = "imageId";
     public static final String BUCKET_NAME = "bucketName";
-    public static final String OBJECT_KEY = "objectKey";
+    public static final String IMAGE_TYPE = "imageType";
 
     UUID imageId;
     String bucketName;
+    String imageType;
 }

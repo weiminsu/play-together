@@ -24,7 +24,9 @@ public class GetImageRequestHandler implements RequestHandler<GetImageRequest, G
 
         ImageMetadata imageMetadata = imageRepository.getImageMetadata(input.getImageId());
         URL presignedUrl = imageMetadata == null ? null :
-                s3Repository.getDownloadUrl(imageMetadata.getBucketName(), imageMetadata.getImageId().toString());
+                s3Repository.getDownloadUrl(
+                        imageMetadata.getBucketName(),
+                        imageMetadata.getImageId().toString() + "." + imageMetadata.getImageType());
         GetImageResponse getImageResponse = new GetImageResponse();
         getImageResponse.setImageId(input.getImageId());
         getImageResponse.setImageUrl(presignedUrl);

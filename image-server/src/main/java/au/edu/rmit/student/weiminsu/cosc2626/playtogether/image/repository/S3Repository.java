@@ -14,7 +14,7 @@ import java.time.Instant;
 public class S3Repository {
 
     public URL getDownloadUrl(String bucketName, String objectKey) {
-        Regions clientRegion = Regions.DEFAULT_REGION;
+        Regions clientRegion = Regions.US_EAST_1;
         URL url = null;
 
         try {
@@ -51,7 +51,7 @@ public class S3Repository {
     }
 
     public URL getUploadUrl(String bucketName, String objectKey) {
-        Regions clientRegion = Regions.DEFAULT_REGION;
+        Regions clientRegion = Regions.US_EAST_1;
         URL url = null;
 
         try {

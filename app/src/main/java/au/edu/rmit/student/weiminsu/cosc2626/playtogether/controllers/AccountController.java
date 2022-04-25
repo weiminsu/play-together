@@ -33,7 +33,7 @@ public class AccountController {
         return result;
     }
 
-    @PostMapping("/")
+    @PostMapping("")
     public Account postAccount(
         @RequestBody Account account
     ) {

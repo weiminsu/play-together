@@ -32,11 +32,11 @@ public interface AccountMapper {
 
     @ResultMap("accountResultMap")
     @Select("""
-            INSERT INTO ACCOUNTS (accountId, nickname, email, description, suburb) VALUES (
-                #{account.accountId}, #{account.nickname}, #{account.email}, #{account.description}, #{account.suburb}
+            INSERT INTO ACCOUNTS (accountId, nickname, email, description, suburb, profileImageUrl) VALUES (
+                #{account.accountId}, #{account.nickname}, #{account.email}, #{account.description}, #{account.suburb}, #{account.profileImageUrl}
             )
             ON CONFLICT(accountId) DO UPDATE
-            SET nickname = #{account.nickname}, email = #{account.email}, description = #{account.description}, suburb = #{account.suburb}
+            SET nickname = #{account.nickname}, email = #{account.email}, description = #{account.description}, suburb = #{account.suburb}, profileImageUrl = #{account.profileImageUrl}
             RETURNING *
         """)
     Account upsertAccount(@Param("account") Account account);
